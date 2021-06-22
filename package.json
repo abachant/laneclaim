@@ -1,0 +1,19 @@
+{
+  "name": "laneclaim",
+  "version": "1.0.0",
+  "description": "A progressive web app for tracking bike lane obstructions.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abachant/laneclaim.git"
+  },
+  "author": "Aubrey Bachant",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abachant/laneclaim/issues"
+  },
+  "homepage": "https://github.com/abachant/laneclaim#readme"
+}
