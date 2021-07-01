@@ -15,5 +15,12 @@ module.exports = {
       }
     ]
   },
-  devtool: 'cheap-module-eval-source-map'
+  devtool: 'source-map',
+  devServer: {
+    contentBase: path.join(__dirname, 'public'),
+    compress: true,
+    historyApiFallback: true,
+    open: true,
+    overlay: true
+  }
 };
