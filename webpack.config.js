@@ -4,7 +4,7 @@ module.exports = {
   entry: './src/index.tsx',
   output: {
     path: path.join(__dirname, 'public'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   module: {
     rules: [
@@ -15,9 +15,9 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader']
-      }
-    ]
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
+    ],
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
@@ -28,6 +28,6 @@ module.exports = {
     compress: true,
     historyApiFallback: true,
     open: true,
-    overlay: true
-  }
+    overlay: true,
+  },
 };
