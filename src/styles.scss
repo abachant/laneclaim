@@ -1,5 +1,26 @@
-$test-color: red;
+// variables
+$dark-grey: rgb(31, 33, 39);
 
-* {
-  color: $test-color;
+// elements
+body {
+  margin: 0;
 }
+
+// classes
+.nav {
+  background-color: $dark-grey;
+  color: white;
+  display: inline-flex;
+  width: 100%;
+  height: 50px;
+}
+.nav__list {
+  float: right;
+  height: 100%;
+  margin-left: auto;
+}
+.nav__item {
+  margin: 10px;
+  display: inline;
+}
+// ids
