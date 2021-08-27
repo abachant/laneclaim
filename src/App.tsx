@@ -7,7 +7,7 @@ const config = require('../config');
 
 const App: FC = () => {
   // Whether or not About modal is visible
-  const [aboutOpen, setAboutOpen] = useState(true);
+  const [aboutOpen, setAboutOpen] = useState(false);
 
   // Toggle state of About modal visibility
   const toggleAboutOpen = () => setAboutOpen(!aboutOpen);
@@ -27,7 +27,7 @@ const App: FC = () => {
 
   return (
     <div id="apps" className="container">
-      <Nav />
+      <Nav aboutOpen={aboutOpen} toggleAboutOpen={toggleAboutOpen}/>
       <About isOpen={aboutOpen} toggleAboutOpen={toggleAboutOpen} />
       <div id="map" />
     </div>
