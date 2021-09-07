@@ -8,21 +8,22 @@ const About: FC = ({ isOpen, toggleAboutOpen }) => {
     <ReactModal
       isOpen={isOpen}
       onRequestClose={toggleAboutOpen}
-      contentLabel="Example Modal"
+      contentLabel="About Modal"
+      className="modal__content"
     >
       <div>
-
         <h1>About Lane Claim</h1>
         <p>Lane Claim is progressive web app dedicated to protecting bike lanes from automobile obstructions.</p>
         <h3>Goals</h3>
         <ul>
-          <li>To use this data to determine which bikelanes are in the most need for better protection.</li>
+          <li>To use this data to determine which bike lanes are in the most need for better protection.</li>
           <li>To potentially hold offenders accountable.</li>
         </ul>
 
         <h3>How To Use</h3>
         <ul>
-          <li>Simply take a photo of the offending vehicle and upload it with the 'Submit New Claim' button</li>
+          <li>Click 'Submit New Claim' button to begin</li>
+          <li>Either take photo with Laneclaim or upload a jpeg with the 'select file' button</li>
           <li>Add any supplemental info like the offender's liscence plate or add a comment</li>
           <li>Lane Claim will place a marker at its location with its information</li>
         </ul>
