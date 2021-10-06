@@ -1,10 +1,17 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import L from 'leaflet';
 import Nav from './components/Nav';
+import About from './components/About';
 
 const config = require('../config');
 
 const App: FC = () => {
+  // Whether or not About modal is visible
+  const [aboutOpen, setAboutOpen] = useState(false);
+
+  // Toggle state of About modal visibility
+  const toggleAboutOpen = () => setAboutOpen(!aboutOpen);
+
   useEffect(() => {
     // initialize primary map
     const primaryMap = L.map('map').setView([39.8283, -98.5795], 5);
@@ -16,11 +23,12 @@ const App: FC = () => {
       id: 'mapbox/streets-v11',
       accessToken: config.leafletToken,
     }).addTo(primaryMap);
-  });
+  }, []);
 
   return (
-    <div id="app" className="container">
-      <Nav />
+    <div id="apps" className="container">
+      <Nav aboutOpen={aboutOpen} toggleAboutOpen={toggleAboutOpen}/>
+      <About isOpen={aboutOpen} toggleAboutOpen={toggleAboutOpen} />
       <div id="map" />
     </div>
   );
