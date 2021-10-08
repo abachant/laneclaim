@@ -1,9 +1,9 @@
-import React, { FC } from 'react';
+import React from 'react';
 import ReactModal from 'react-modal';
 
 ReactModal.setAppElement('#app');
 
-const About: FC = ({ isOpen, toggleAboutOpen }) => (
+const About = ({ isOpen, toggleAboutOpen }) => (
   <ReactModal
     isOpen={isOpen}
     onRequestClose={toggleAboutOpen}
