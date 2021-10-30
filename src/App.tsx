@@ -30,10 +30,7 @@ const App = () => {
 
   return (
     <div id="apps" className="container">
-      <Nav
-        toggleAboutOpen={toggleAboutOpen}
-        toggleClaimOpen={toggleClaimOpen}
-      />
+      <Nav toggleAboutOpen={toggleAboutOpen} toggleClaimOpen={toggleClaimOpen} />
       <About isOpen={aboutOpen} toggleAboutOpen={toggleAboutOpen} />
       <Claim isOpen={claimOpen} toggleClaimOpen={toggleClaimOpen} />
       <div id="map" />

@@ -3,7 +3,12 @@ import ReactModal from 'react-modal';
 
 ReactModal.setAppElement('#app');
 
-const About = ({ isOpen, toggleAboutOpen }) => (
+type Props = {
+  isOpen: boolean;
+  toggleAboutOpen: Function;
+};
+
+const About = ({ isOpen, toggleAboutOpen }: Props) => (
   <ReactModal
     isOpen={isOpen}
     onRequestClose={toggleAboutOpen}

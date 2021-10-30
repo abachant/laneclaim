@@ -1,6 +1,11 @@
 import React from 'react';
 
-const Nav = ({ toggleAboutOpen, toggleClaimOpen }) => (
+type Props = {
+  toggleAboutOpen: Function;
+  toggleClaimOpen: Function;
+};
+
+const Nav = ({ toggleAboutOpen, toggleClaimOpen }: Props) => (
   <nav className="nav">
     <h2 className="nav__item">Laneclaim</h2>
     <div className="nav__list">
