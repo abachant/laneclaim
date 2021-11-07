@@ -6,9 +6,10 @@ ReactModal.setAppElement('#app');
 type Props = {
   isOpen: boolean;
   toggleStartClaimOpen: Function;
+  toggleEditClaimOpen: Function;
 };
 
-const StartClaim = ({ isOpen, toggleStartClaimOpen }: Props) => (
+const StartClaim = ({ isOpen, toggleStartClaimOpen, toggleEditClaimOpen }: Props) => (
   <ReactModal
     isOpen={isOpen}
     onRequestClose={toggleStartClaimOpen}
@@ -23,7 +24,7 @@ const StartClaim = ({ isOpen, toggleStartClaimOpen }: Props) => (
       <button type="button" onClick={toggleStartClaimOpen}>
         Close
       </button>
-      <button type="button" onClick={toggleStartClaimOpen}>
+      <button type="button" onClick={() => { toggleStartClaimOpen(); toggleEditClaimOpen(); }}>
         Next
       </button>
     </div>
