@@ -2,10 +2,10 @@ import React from 'react';
 
 type Props = {
   toggleAboutOpen: Function;
-  toggleClaimOpen: Function;
+  toggleStartClaimOpen: Function;
 };
 
-const Nav = ({ toggleAboutOpen, toggleClaimOpen }: Props) => (
+const Nav = ({ toggleAboutOpen, toggleStartClaimOpen }: Props) => (
   <nav className="nav">
     <h2 className="nav__item">Laneclaim</h2>
     <div className="nav__list">
@@ -21,9 +21,9 @@ const Nav = ({ toggleAboutOpen, toggleClaimOpen }: Props) => (
       <button
         className="nav__item"
         type="button"
-        onClick={toggleClaimOpen}
+        onClick={toggleStartClaimOpen}
         tabIndex={0}
-        onKeyDown={toggleClaimOpen}
+        onKeyDown={toggleStartClaimOpen}
       >
         Submit New Claim
       </button>

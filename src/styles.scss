@@ -30,7 +30,8 @@ body {
   text-decoration: underline;
 }
 
-.modal__content{
+.modal{
+  width:500px;
   max-width: 700px;
   position: static;
   top: 40px;
@@ -40,8 +41,8 @@ body {
   border: 1px solid #ccc;
   background: #fff;
   overflow: auto;
-  WebkitOverflowScrolling: touch;
-  borderRadius: 4px;
+  // WebkitOverflowScrolling: touch;
+  border-radius: 4px;
   outline: none;
   padding: 20px;
 }

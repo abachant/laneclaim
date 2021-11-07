@@ -13,7 +13,7 @@ const About = ({ isOpen, toggleAboutOpen }: Props) => (
     isOpen={isOpen}
     onRequestClose={toggleAboutOpen}
     contentLabel="About Modal"
-    className="modal__content"
+    className="modal"
   >
     <div>
       <h1>About Lane Claim</h1>

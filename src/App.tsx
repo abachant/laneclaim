@@ -2,18 +2,18 @@ import React, { useState, useEffect } from 'react';
 import L from 'leaflet';
 import Nav from './components/Nav';
 import About from './components/About';
-import Claim from './components/Claim';
+import StartClaim from './components/StartClaim';
 
 const config = require('../config');
 
 const App = () => {
   // Whether or not About and or Claim modals are visible
   const [aboutOpen, setAboutOpen] = useState(false);
-  const [claimOpen, setClaimOpen] = useState(false);
+  const [startClaimOpen, setStartClaimOpen] = useState(false);
 
   // Toggle state of About and or Claim modal visibility
   const toggleAboutOpen = () => setAboutOpen(!aboutOpen);
-  const toggleClaimOpen = () => setClaimOpen(!claimOpen);
+  const toggleStartClaimOpen = () => setStartClaimOpen(!startClaimOpen);
 
   useEffect(() => {
     // initialize primary map
@@ -30,9 +30,9 @@ const App = () => {
 
   return (
     <div id="apps" className="container">
-      <Nav toggleAboutOpen={toggleAboutOpen} toggleClaimOpen={toggleClaimOpen} />
+      <Nav toggleAboutOpen={toggleAboutOpen} toggleStartClaimOpen={toggleStartClaimOpen} />
       <About isOpen={aboutOpen} toggleAboutOpen={toggleAboutOpen} />
-      <Claim isOpen={claimOpen} toggleClaimOpen={toggleClaimOpen} />
+      <StartClaim isOpen={startClaimOpen} toggleStartClaimOpen={toggleStartClaimOpen} />
       <div id="map" />
     </div>
   );
