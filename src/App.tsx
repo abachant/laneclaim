@@ -4,6 +4,7 @@ import Nav from './components/Nav';
 import About from './components/About';
 import StartClaim from './components/StartClaim';
 import EditClaim from './components/EditClaim';
+import EndClaim from './components/EndClaim';
 
 const config = require('../config');
 
@@ -12,11 +13,13 @@ const App = () => {
   const [aboutOpen, setAboutOpen] = useState(false);
   const [startClaimOpen, setStartClaimOpen] = useState(false);
   const [editClaimOpen, setEditClaimOpen] = useState(false);
+  const [endClaimOpen, setEndClaimOpen] = useState(false);
 
   // Toggle state of About and or Claim modals visibility
   const toggleAboutOpen = () => setAboutOpen(!aboutOpen);
   const toggleStartClaimOpen = () => setStartClaimOpen(!startClaimOpen);
   const toggleEditClaimOpen = () => setEditClaimOpen(!editClaimOpen);
+  const toggleEndClaimOpen = () => setEndClaimOpen(!endClaimOpen);
 
   useEffect(() => {
     // initialize primary map
@@ -44,6 +47,12 @@ const App = () => {
         isOpen={editClaimOpen}
         toggleStartClaimOpen={toggleStartClaimOpen}
         toggleEditClaimOpen={toggleEditClaimOpen}
+        toggleEndClaimOpen={toggleEndClaimOpen}
+      />
+      <EndClaim
+        isOpen={endClaimOpen}
+        toggleStartClaimOpen={toggleStartClaimOpen}
+        toggleEndClaimOpen={toggleEndClaimOpen}
       />
       <div id="map" />
     </div>

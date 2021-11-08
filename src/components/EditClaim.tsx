@@ -7,9 +7,14 @@ type Props = {
   isOpen: boolean;
   toggleStartClaimOpen: Function;
   toggleEditClaimOpen: Function;
+  toggleEndClaimOpen: Function;
 };
 
-const EditClaim = ({ isOpen, toggleStartClaimOpen, toggleEditClaimOpen }: Props) => (
+const EditClaim = (
+  {
+    isOpen, toggleStartClaimOpen, toggleEditClaimOpen, toggleEndClaimOpen,
+  }: Props,
+) => (
   <ReactModal
     isOpen={isOpen}
     onRequestClose={toggleEditClaimOpen}
@@ -22,7 +27,7 @@ const EditClaim = ({ isOpen, toggleStartClaimOpen, toggleEditClaimOpen }: Props)
       <button type="button" onClick={() => { toggleEditClaimOpen(); toggleStartClaimOpen(); }}>
         Back
       </button>
-      <button type="button" onClick={toggleEditClaimOpen}>
+      <button type="button" onClick={() => { toggleEditClaimOpen(); toggleEndClaimOpen(); }}>
         Submit
       </button>
     </div>
