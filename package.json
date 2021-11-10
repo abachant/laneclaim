@@ -7,7 +7,7 @@
     "test": "jest",
     "start": "node ./server/server.ts",
     "start:dev": "nodemon ./server/server.ts",
-    "build:dev": "webpack serve --mode=development",
+    "build:dev": "webpack  --mode=development --watch",
     "build": "webpack --mode=production"
   },
   "repository": {
