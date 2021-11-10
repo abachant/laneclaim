@@ -1,14 +1,19 @@
-import React, { FC } from 'react';
+import React from 'react';
 import ReactModal from 'react-modal';
 
 ReactModal.setAppElement('#app');
 
-const About: FC = ({ isOpen, toggleAboutOpen }) => (
+type Props = {
+  isOpen: boolean;
+  toggleAboutOpen: Function;
+};
+
+const About = ({ isOpen, toggleAboutOpen }: Props) => (
   <ReactModal
     isOpen={isOpen}
     onRequestClose={toggleAboutOpen}
     contentLabel="About Modal"
-    className="modal__content"
+    className="modal"
   >
     <div>
       <h1>About Lane Claim</h1>

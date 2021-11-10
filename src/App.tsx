@@ -1,16 +1,25 @@
-import React, { FC, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import L from 'leaflet';
 import Nav from './components/Nav';
 import About from './components/About';
+import StartClaim from './components/StartClaim';
+import EditClaim from './components/EditClaim';
+import EndClaim from './components/EndClaim';
 
 const config = require('../config');
 
-const App: FC = () => {
-  // Whether or not About modal is visible
+const App = () => {
+  // Whether or not About and or Claim modals are visible
   const [aboutOpen, setAboutOpen] = useState(false);
+  const [startClaimOpen, setStartClaimOpen] = useState(false);
+  const [editClaimOpen, setEditClaimOpen] = useState(false);
+  const [endClaimOpen, setEndClaimOpen] = useState(false);
 
-  // Toggle state of About modal visibility
+  // Toggle state of About and or Claim modals visibility
   const toggleAboutOpen = () => setAboutOpen(!aboutOpen);
+  const toggleStartClaimOpen = () => setStartClaimOpen(!startClaimOpen);
+  const toggleEditClaimOpen = () => setEditClaimOpen(!editClaimOpen);
+  const toggleEndClaimOpen = () => setEndClaimOpen(!endClaimOpen);
 
   useEffect(() => {
     // initialize primary map
@@ -27,8 +36,24 @@ const App: FC = () => {
 
   return (
     <div id="apps" className="container">
-      <Nav aboutOpen={aboutOpen} toggleAboutOpen={toggleAboutOpen}/>
+      <Nav toggleAboutOpen={toggleAboutOpen} toggleStartClaimOpen={toggleStartClaimOpen} />
       <About isOpen={aboutOpen} toggleAboutOpen={toggleAboutOpen} />
+      <StartClaim
+        isOpen={startClaimOpen}
+        toggleStartClaimOpen={toggleStartClaimOpen}
+        toggleEditClaimOpen={toggleEditClaimOpen}
+      />
+      <EditClaim
+        isOpen={editClaimOpen}
+        toggleStartClaimOpen={toggleStartClaimOpen}
+        toggleEditClaimOpen={toggleEditClaimOpen}
+        toggleEndClaimOpen={toggleEndClaimOpen}
+      />
+      <EndClaim
+        isOpen={endClaimOpen}
+        toggleStartClaimOpen={toggleStartClaimOpen}
+        toggleEndClaimOpen={toggleEndClaimOpen}
+      />
       <div id="map" />
     </div>
   );
