@@ -512,7 +512,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "body {\n  margin: 0; }\n\n.nav {\n  background-color: #1F2127;\n  color: white;\n  display: inline-flex;\n  width: 100%;\n  height: 50px; }\n\n.nav__list {\n  float: right;\n  height: 100%;\n  margin-left: auto; }\n\n.nav__item {\n  margin: 15px;\n  display: inline; }\n\n.nav__item--link:hover {\n  color: #75cfef;\n  cursor: pointer;\n  text-decoration: underline; }\n\n.modal {\n  width: 500px;\n  max-width: 700px;\n  position: static;\n  top: 40px;\n  left: 40px;\n  right: 40px;\n  bottom: 40px;\n  border: 1px solid #ccc;\n  background: #fff;\n  overflow: auto;\n  border-radius: 4px;\n  outline: none;\n  padding: 20px; }\n\n.ReactModal__Overlay {\n  display: flex;\n  justify-content: center;\n  align-items: center; }\n\n#app {\n  height: 100vh;\n  width: 100vw;\n  margin: 0;\n  padding: 0;\n  display: flex;\n  flex-direction: column; }\n\n#apps {\n  height: 100vh;\n  width: 100vw;\n  margin: 0;\n  padding: 0;\n  display: flex;\n  flex-direction: column;\n  z-index: 0; }\n\n#map {\n  height: 100%; }\n\n#edit-claim__map {\n  width: 200px;\n  height: 200px; }\n", "",{"version":3,"sources":["webpack://./src/styles.scss"],"names":[],"mappings":"AAKA;EACE,SAAS,EAAA;;AAIX;EACE,yBAViB;EAWjB,YAAY;EACZ,oBAAoB;EACpB,WAAW;EACX,YAAY,EAAA;;AAEd;EACE,YAAY;EACZ,YAAY;EACZ,iBAAiB,EAAA;;AAEnB;EACE,YAAY;EACZ,eAAe,EAAA;;AAEjB;EACE,cAzBkB;EA0BlB,eAAe;EACf,0BAA0B,EAAA;;AAG5B;EACE,YAAW;EACX,gBAAgB;EAChB,gBAAgB;EAChB,SAAS;EACT,UAAU;EACV,WAAW;EACX,YAAY;EACZ,sBAAsB;EACtB,gBAAgB;EAChB,cAAc;EAEd,kBAAkB;EAClB,aAAa;EACb,aAAa,EAAA;;AAGf;EACE,aAAa;EACb,uBAAuB;EACvB,mBAAmB,EAAA;;AAIrB;EACE,aAAa;EACb,YAAY;EACZ,SAAS;EACT,UAAU;EACV,aAAa;EACb,sBAAsB,EAAA;;AAGxB;EACE,aAAa;EACb,YAAY;EACZ,SAAS;EACT,UAAU;EACV,aAAa;EACb,sBAAsB;EACtB,UAAU,EAAA;;AAGZ;EACE,YAAY,EAAA;;AAGd;EACE,YAAY;EACZ,aAAa,EAAA","sourcesContent":["// variables\n$dark-grey: #1F2127;\n$light-blue: #75cfef;\n\n// elements\nbody {\n  margin: 0;\n}\n\n// classes\n.nav {\n  background-color: $dark-grey;\n  color: white;\n  display: inline-flex;\n  width: 100%;\n  height: 50px;\n}\n.nav__list {\n  float: right;\n  height: 100%;\n  margin-left: auto;\n}\n.nav__item {\n  margin: 15px;\n  display: inline;\n}\n.nav__item--link:hover {\n  color: $light-blue;\n  cursor: pointer;\n  text-decoration: underline;\n}\n\n.modal{\n  width:500px;\n  max-width: 700px;\n  position: static;\n  top: 40px;\n  left: 40px;\n  right: 40px;\n  bottom: 40px;\n  border: 1px solid #ccc;\n  background: #fff;\n  overflow: auto;\n  // WebkitOverflowScrolling: touch;\n  border-radius: 4px;\n  outline: none;\n  padding: 20px;\n}\n\n.ReactModal__Overlay{\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n// ids\n#app {\n  height: 100vh;\n  width: 100vw;\n  margin: 0;\n  padding: 0;\n  display: flex;\n  flex-direction: column;\n}\n\n#apps {\n  height: 100vh;\n  width: 100vw;\n  margin: 0;\n  padding: 0;\n  display: flex;\n  flex-direction: column;\n  z-index: 0;\n}\n\n#map {\n  height: 100%;\n}\n\n#edit-claim__map {\n  width: 200px;\n  height: 200px;\n}\n\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "body {\n  margin: 0; }\n\n.nav {\n  background-color: #1F2127;\n  color: white;\n  display: inline-flex;\n  width: 100%;\n  height: 50px; }\n\n.nav__list {\n  float: right;\n  height: 100%;\n  margin-left: auto; }\n\n.nav__item {\n  margin: 15px;\n  display: inline; }\n\n.nav__item--link:hover {\n  color: #75cfef;\n  cursor: pointer;\n  text-decoration: underline; }\n\n.modal {\n  width: 500px;\n  max-width: 700px;\n  position: static;\n  top: 40px;\n  left: 40px;\n  right: 40px;\n  bottom: 40px;\n  border: 1px solid #ccc;\n  background: #fff;\n  overflow: auto;\n  border-radius: 4px;\n  outline: none;\n  padding: 20px; }\n\n.ReactModal__Overlay {\n  display: flex;\n  justify-content: center;\n  align-items: center; }\n\n.user-error {\n  color: red; }\n\n#app {\n  height: 100vh;\n  width: 100vw;\n  margin: 0;\n  padding: 0;\n  display: flex;\n  flex-direction: column; }\n\n#apps {\n  height: 100vh;\n  width: 100vw;\n  margin: 0;\n  padding: 0;\n  display: flex;\n  flex-direction: column;\n  z-index: 0; }\n\n#map {\n  height: 100%; }\n\n#edit-claim__map {\n  width: 200px;\n  height: 200px; }\n", "",{"version":3,"sources":["webpack://./src/styles.scss"],"names":[],"mappings":"AAKA;EACE,SAAS,EAAA;;AAIX;EACE,yBAViB;EAWjB,YAAY;EACZ,oBAAoB;EACpB,WAAW;EACX,YAAY,EAAA;;AAEd;EACE,YAAY;EACZ,YAAY;EACZ,iBAAiB,EAAA;;AAEnB;EACE,YAAY;EACZ,eAAe,EAAA;;AAEjB;EACE,cAzBkB;EA0BlB,eAAe;EACf,0BAA0B,EAAA;;AAG5B;EACE,YAAW;EACX,gBAAgB;EAChB,gBAAgB;EAChB,SAAS;EACT,UAAU;EACV,WAAW;EACX,YAAY;EACZ,sBAAsB;EACtB,gBAAgB;EAChB,cAAc;EAEd,kBAAkB;EAClB,aAAa;EACb,aAAa,EAAA;;AAGf;EACE,aAAa;EACb,uBAAuB;EACvB,mBAAmB,EAAA;;AAGrB;EACE,UAAS,EAAA;;AAIX;EACE,aAAa;EACb,YAAY;EACZ,SAAS;EACT,UAAU;EACV,aAAa;EACb,sBAAsB,EAAA;;AAGxB;EACE,aAAa;EACb,YAAY;EACZ,SAAS;EACT,UAAU;EACV,aAAa;EACb,sBAAsB;EACtB,UAAU,EAAA;;AAGZ;EACE,YAAY,EAAA;;AAGd;EACE,YAAY;EACZ,aAAa,EAAA","sourcesContent":["// variables\n$dark-grey: #1F2127;\n$light-blue: #75cfef;\n\n// elements\nbody {\n  margin: 0;\n}\n\n// classes\n.nav {\n  background-color: $dark-grey;\n  color: white;\n  display: inline-flex;\n  width: 100%;\n  height: 50px;\n}\n.nav__list {\n  float: right;\n  height: 100%;\n  margin-left: auto;\n}\n.nav__item {\n  margin: 15px;\n  display: inline;\n}\n.nav__item--link:hover {\n  color: $light-blue;\n  cursor: pointer;\n  text-decoration: underline;\n}\n\n.modal {\n  width:500px;\n  max-width: 700px;\n  position: static;\n  top: 40px;\n  left: 40px;\n  right: 40px;\n  bottom: 40px;\n  border: 1px solid #ccc;\n  background: #fff;\n  overflow: auto;\n  // WebkitOverflowScrolling: touch;\n  border-radius: 4px;\n  outline: none;\n  padding: 20px;\n}\n\n.ReactModal__Overlay {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n.user-error {\n  color:red;\n}\n\n// ids\n#app {\n  height: 100vh;\n  width: 100vw;\n  margin: 0;\n  padding: 0;\n  display: flex;\n  flex-direction: column;\n}\n\n#apps {\n  height: 100vh;\n  width: 100vw;\n  margin: 0;\n  padding: 0;\n  display: flex;\n  flex-direction: column;\n  z-index: 0;\n}\n\n#map {\n  height: 100%;\n}\n\n#edit-claim__map {\n  width: 200px;\n  height: 200px;\n}\n\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -48060,18 +48060,30 @@ __webpack_require__.r(__webpack_exports__);
 react_modal__WEBPACK_IMPORTED_MODULE_1___default().setAppElement('#app');
 var StartClaim = function (_a) {
     var isOpen = _a.isOpen, toggleStartClaimOpen = _a.toggleStartClaimOpen, toggleEditClaimOpen = _a.toggleEditClaimOpen;
+    var _b = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(), userErrors = _b[0], setUserErrors = _b[1];
+    // Close StartClaim and open EditClaim
     var switchToEditClaim = function () {
         toggleStartClaimOpen();
         toggleEditClaimOpen();
+        // reset state of StartClaim for next submission
+        setUserErrors();
     };
-    var startClaim = function () {
+    // Begin claim process
+    var beginClaim = function () {
         var fileInput = document.getElementById('start-claim__input');
         var file = fileInput.files[0];
+        // verify user has submitted a file
         if (file) {
             switchToEditClaim();
         }
         else {
-            alert('Please add a photo');
+            setUserErrors('Please add a photo before proceeding');
+        }
+    };
+    // Render an error message for the user's unnacceptable file input
+    var renderErrorMessage = function () {
+        if (userErrors) {
+            return react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "user-error" }, userErrors);
         }
     };
     return (react__WEBPACK_IMPORTED_MODULE_0__.createElement((react_modal__WEBPACK_IMPORTED_MODULE_1___default()), { isOpen: isOpen, onRequestClose: toggleStartClaimOpen, contentLabel: "Upload Claim Modal", className: "modal" },
@@ -48079,9 +48091,10 @@ var StartClaim = function (_a) {
             react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", { className: "modal__title" }, "Submit New Claim"),
             react__WEBPACK_IMPORTED_MODULE_0__.createElement("h6", null, "Upload a photo of a vehicle obstructing a bike lane"),
             react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", { type: "file", name: "start-claim__file", id: "start-claim__input", accept: "image/.jpeg" }),
+            renderErrorMessage(),
             react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "File must be a jpeg with exif data"),
             react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", { type: "button", onClick: toggleStartClaimOpen }, "Close"),
-            react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", { type: "button", onClick: startClaim }, "Next"))));
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", { type: "button", onClick: beginClaim }, "Next"))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (StartClaim);
 

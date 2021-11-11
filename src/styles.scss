@@ -30,7 +30,7 @@ body {
   text-decoration: underline;
 }
 
-.modal{
+.modal {
   width:500px;
   max-width: 700px;
   position: static;
@@ -47,10 +47,14 @@ body {
   padding: 20px;
 }
 
-.ReactModal__Overlay{
+.ReactModal__Overlay {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.user-error {
+  color:red;
 }
 
 // ids
