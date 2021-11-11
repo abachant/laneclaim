@@ -48060,6 +48060,20 @@ __webpack_require__.r(__webpack_exports__);
 react_modal__WEBPACK_IMPORTED_MODULE_1___default().setAppElement('#app');
 var StartClaim = function (_a) {
     var isOpen = _a.isOpen, toggleStartClaimOpen = _a.toggleStartClaimOpen, toggleEditClaimOpen = _a.toggleEditClaimOpen;
+    var switchToEditClaim = function () {
+        toggleStartClaimOpen();
+        toggleEditClaimOpen();
+    };
+    var startClaim = function () {
+        var fileInput = document.getElementById('start-claim__input');
+        var file = fileInput.files[0];
+        if (file) {
+            switchToEditClaim();
+        }
+        else {
+            alert('Please add a photo');
+        }
+    };
     return (react__WEBPACK_IMPORTED_MODULE_0__.createElement((react_modal__WEBPACK_IMPORTED_MODULE_1___default()), { isOpen: isOpen, onRequestClose: toggleStartClaimOpen, contentLabel: "Upload Claim Modal", className: "modal" },
         react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null,
             react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", { className: "modal__title" }, "Submit New Claim"),
@@ -48067,7 +48081,7 @@ var StartClaim = function (_a) {
             react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", { type: "file", name: "start-claim__file", id: "start-claim__input", accept: "image/.jpeg" }),
             react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "File must be a jpeg with exif data"),
             react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", { type: "button", onClick: toggleStartClaimOpen }, "Close"),
-            react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", { type: "button", onClick: function () { toggleStartClaimOpen(); toggleEditClaimOpen(); } }, "Next"))));
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", { type: "button", onClick: startClaim }, "Next"))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (StartClaim);
 
