@@ -47810,6 +47810,9 @@ var App = function () {
             return modal;
         }
     };
+    var startClaim = (react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_StartClaim__WEBPACK_IMPORTED_MODULE_4__.default, { isOpen: startClaimOpen, toggleStartClaimOpen: toggleStartClaimOpen, toggleEditClaimOpen: toggleEditClaimOpen }));
+    var editClaim = (react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_EditClaim__WEBPACK_IMPORTED_MODULE_5__.default, { isOpen: editClaimOpen, toggleStartClaimOpen: toggleStartClaimOpen, toggleEditClaimOpen: toggleEditClaimOpen, toggleEndClaimOpen: toggleEndClaimOpen }));
+    var endClaim = (react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_EndClaim__WEBPACK_IMPORTED_MODULE_6__.default, { isOpen: endClaimOpen, toggleStartClaimOpen: toggleStartClaimOpen, toggleEndClaimOpen: toggleEndClaimOpen }));
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
         // initialize primary map
         var primaryMap = leaflet__WEBPACK_IMPORTED_MODULE_1___default().map('map').setView([39.8283, -98.5795], 5);
@@ -47824,9 +47827,9 @@ var App = function () {
     return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { id: "apps", className: "container" },
         react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Nav__WEBPACK_IMPORTED_MODULE_2__.default, { toggleAboutOpen: toggleAboutOpen, toggleStartClaimOpen: toggleStartClaimOpen }),
         react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_About__WEBPACK_IMPORTED_MODULE_3__.default, { isOpen: aboutOpen, toggleAboutOpen: toggleAboutOpen }),
-        renderModal(startClaimOpen, react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_StartClaim__WEBPACK_IMPORTED_MODULE_4__.default, { isOpen: startClaimOpen, toggleStartClaimOpen: toggleStartClaimOpen, toggleEditClaimOpen: toggleEditClaimOpen })),
-        react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_EditClaim__WEBPACK_IMPORTED_MODULE_5__.default, { isOpen: editClaimOpen, toggleStartClaimOpen: toggleStartClaimOpen, toggleEditClaimOpen: toggleEditClaimOpen, toggleEndClaimOpen: toggleEndClaimOpen }),
-        react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_EndClaim__WEBPACK_IMPORTED_MODULE_6__.default, { isOpen: endClaimOpen, toggleStartClaimOpen: toggleStartClaimOpen, toggleEndClaimOpen: toggleEndClaimOpen }),
+        renderModal(startClaimOpen, startClaim),
+        renderModal(editClaimOpen, editClaim),
+        renderModal(endClaimOpen, endClaim),
         react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { id: "map" })));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);

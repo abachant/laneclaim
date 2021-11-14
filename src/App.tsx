@@ -25,7 +25,32 @@ const App = () => {
     if (openValue) {
       return modal;
     }
-  }
+  };
+
+  const startClaim = (
+    <StartClaim
+      isOpen={startClaimOpen}
+      toggleStartClaimOpen={toggleStartClaimOpen}
+      toggleEditClaimOpen={toggleEditClaimOpen}
+    />
+  );
+
+  const editClaim = (
+    <EditClaim
+      isOpen={editClaimOpen}
+      toggleStartClaimOpen={toggleStartClaimOpen}
+      toggleEditClaimOpen={toggleEditClaimOpen}
+      toggleEndClaimOpen={toggleEndClaimOpen}
+    />
+  );
+
+  const endClaim = (
+    <EndClaim
+      isOpen={endClaimOpen}
+      toggleStartClaimOpen={toggleStartClaimOpen}
+      toggleEndClaimOpen={toggleEndClaimOpen}
+    />
+  );
 
   useEffect(() => {
     // initialize primary map
@@ -44,22 +69,9 @@ const App = () => {
     <div id="apps" className="container">
       <Nav toggleAboutOpen={toggleAboutOpen} toggleStartClaimOpen={toggleStartClaimOpen} />
       <About isOpen={aboutOpen} toggleAboutOpen={toggleAboutOpen} />
-      {renderModal(startClaimOpen, <StartClaim
-        isOpen={startClaimOpen}
-        toggleStartClaimOpen={toggleStartClaimOpen}
-        toggleEditClaimOpen={toggleEditClaimOpen}
-      />)}
-      <EditClaim
-        isOpen={editClaimOpen}
-        toggleStartClaimOpen={toggleStartClaimOpen}
-        toggleEditClaimOpen={toggleEditClaimOpen}
-        toggleEndClaimOpen={toggleEndClaimOpen}
-      />
-      <EndClaim
-        isOpen={endClaimOpen}
-        toggleStartClaimOpen={toggleStartClaimOpen}
-        toggleEndClaimOpen={toggleEndClaimOpen}
-      />
+      {renderModal(startClaimOpen, startClaim)}
+      {renderModal(editClaimOpen, editClaim)}
+      {renderModal(endClaimOpen, endClaim)}
       <div id="map" />
     </div>
   );
