@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import ReactModal from 'react-modal';
 
 ReactModal.setAppElement('#app');
@@ -43,7 +43,7 @@ const StartClaim = ({ isOpen, toggleStartClaimOpen, toggleEditClaimOpen }: Props
   // Update reference for current user submitted file
   const onFileChange = (e) => {
     setPhotoFile(e.target.files[0]);
-    console.log(e.target.files[0])
+    console.log(e.target.files[0]);
   };
 
   return (

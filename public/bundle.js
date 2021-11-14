@@ -47783,11 +47783,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _components_Nav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Nav */ "./src/components/Nav.tsx");
 /* harmony import */ var _components_About__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/About */ "./src/components/About.tsx");
-/* harmony import */ var _components_StartClaim__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/StartClaim */ "./src/components/StartClaim.tsx");
-/* harmony import */ var _components_EditClaim__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/EditClaim */ "./src/components/EditClaim.tsx");
-/* harmony import */ var _components_EndClaim__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/EndClaim */ "./src/components/EndClaim.tsx");
-
-
+/* harmony import */ var _components_ClaimModals__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/ClaimModals */ "./src/components/ClaimModals.tsx");
 
 
 
@@ -47805,14 +47801,6 @@ var App = function () {
     var toggleStartClaimOpen = function () { return setStartClaimOpen(!startClaimOpen); };
     var toggleEditClaimOpen = function () { return setEditClaimOpen(!editClaimOpen); };
     var toggleEndClaimOpen = function () { return setEndClaimOpen(!endClaimOpen); };
-    var renderModal = function (openValue, modal) {
-        if (openValue) {
-            return modal;
-        }
-    };
-    var startClaim = (react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_StartClaim__WEBPACK_IMPORTED_MODULE_4__.default, { isOpen: startClaimOpen, toggleStartClaimOpen: toggleStartClaimOpen, toggleEditClaimOpen: toggleEditClaimOpen }));
-    var editClaim = (react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_EditClaim__WEBPACK_IMPORTED_MODULE_5__.default, { isOpen: editClaimOpen, toggleStartClaimOpen: toggleStartClaimOpen, toggleEditClaimOpen: toggleEditClaimOpen, toggleEndClaimOpen: toggleEndClaimOpen }));
-    var endClaim = (react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_EndClaim__WEBPACK_IMPORTED_MODULE_6__.default, { isOpen: endClaimOpen, toggleStartClaimOpen: toggleStartClaimOpen, toggleEndClaimOpen: toggleEndClaimOpen }));
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
         // initialize primary map
         var primaryMap = leaflet__WEBPACK_IMPORTED_MODULE_1___default().map('map').setView([39.8283, -98.5795], 5);
@@ -47827,9 +47815,7 @@ var App = function () {
     return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { id: "apps", className: "container" },
         react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Nav__WEBPACK_IMPORTED_MODULE_2__.default, { toggleAboutOpen: toggleAboutOpen, toggleStartClaimOpen: toggleStartClaimOpen }),
         react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_About__WEBPACK_IMPORTED_MODULE_3__.default, { isOpen: aboutOpen, toggleAboutOpen: toggleAboutOpen }),
-        renderModal(startClaimOpen, startClaim),
-        renderModal(editClaimOpen, editClaim),
-        renderModal(endClaimOpen, endClaim),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_ClaimModals__WEBPACK_IMPORTED_MODULE_4__.default, { startClaimOpen: startClaimOpen, editClaimOpen: editClaimOpen, endClaimOpen: endClaimOpen, toggleStartClaimOpen: toggleStartClaimOpen, toggleEditClaimOpen: toggleEditClaimOpen, toggleEndClaimOpen: toggleEndClaimOpen }),
         react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { id: "map" })));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);
@@ -47887,6 +47873,45 @@ var About = function (_a) {
             react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", { type: "button", onClick: function () { toggleAboutOpen(); console.log('opening...'); } }, "Submit New Claim"))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (About);
+
+
+/***/ }),
+
+/***/ "./src/components/ClaimModals.tsx":
+/*!****************************************!*\
+  !*** ./src/components/ClaimModals.tsx ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _StartClaim__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./StartClaim */ "./src/components/StartClaim.tsx");
+/* harmony import */ var _EditClaim__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./EditClaim */ "./src/components/EditClaim.tsx");
+/* harmony import */ var _EndClaim__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./EndClaim */ "./src/components/EndClaim.tsx");
+
+
+
+
+var ClaimModals = function (_a) {
+    var startClaimOpen = _a.startClaimOpen, editClaimOpen = _a.editClaimOpen, endClaimOpen = _a.endClaimOpen, toggleStartClaimOpen = _a.toggleStartClaimOpen, toggleEditClaimOpen = _a.toggleEditClaimOpen, toggleEndClaimOpen = _a.toggleEndClaimOpen;
+    var startClaim = (react__WEBPACK_IMPORTED_MODULE_0__.createElement(_StartClaim__WEBPACK_IMPORTED_MODULE_1__.default, { isOpen: startClaimOpen, toggleStartClaimOpen: toggleStartClaimOpen, toggleEditClaimOpen: toggleEditClaimOpen }));
+    var editClaim = (react__WEBPACK_IMPORTED_MODULE_0__.createElement(_EditClaim__WEBPACK_IMPORTED_MODULE_2__.default, { isOpen: editClaimOpen, toggleStartClaimOpen: toggleStartClaimOpen, toggleEditClaimOpen: toggleEditClaimOpen, toggleEndClaimOpen: toggleEndClaimOpen }));
+    var endClaim = (react__WEBPACK_IMPORTED_MODULE_0__.createElement(_EndClaim__WEBPACK_IMPORTED_MODULE_3__.default, { isOpen: endClaimOpen, toggleStartClaimOpen: toggleStartClaimOpen, toggleEndClaimOpen: toggleEndClaimOpen }));
+    var renderModal = function (openValue, modal) {
+        if (openValue) {
+            return modal;
+        }
+    };
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null,
+        renderModal(startClaimOpen, startClaim),
+        renderModal(editClaimOpen, editClaim),
+        renderModal(endClaimOpen, endClaim)));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ClaimModals);
 
 
 /***/ }),
