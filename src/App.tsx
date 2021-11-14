@@ -21,6 +21,12 @@ const App = () => {
   const toggleEditClaimOpen = () => setEditClaimOpen(!editClaimOpen);
   const toggleEndClaimOpen = () => setEndClaimOpen(!endClaimOpen);
 
+  const renderModal = (openValue, modal) => {
+    if (openValue) {
+      return modal;
+    }
+  }
+
   useEffect(() => {
     // initialize primary map
     const primaryMap = L.map('map').setView([39.8283, -98.5795], 5);
@@ -38,11 +44,11 @@ const App = () => {
     <div id="apps" className="container">
       <Nav toggleAboutOpen={toggleAboutOpen} toggleStartClaimOpen={toggleStartClaimOpen} />
       <About isOpen={aboutOpen} toggleAboutOpen={toggleAboutOpen} />
-      <StartClaim
+      {renderModal(startClaimOpen, <StartClaim
         isOpen={startClaimOpen}
         toggleStartClaimOpen={toggleStartClaimOpen}
         toggleEditClaimOpen={toggleEditClaimOpen}
-      />
+      />)}
       <EditClaim
         isOpen={editClaimOpen}
         toggleStartClaimOpen={toggleStartClaimOpen}

@@ -47805,6 +47805,11 @@ var App = function () {
     var toggleStartClaimOpen = function () { return setStartClaimOpen(!startClaimOpen); };
     var toggleEditClaimOpen = function () { return setEditClaimOpen(!editClaimOpen); };
     var toggleEndClaimOpen = function () { return setEndClaimOpen(!endClaimOpen); };
+    var renderModal = function (openValue, modal) {
+        if (openValue) {
+            return modal;
+        }
+    };
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
         // initialize primary map
         var primaryMap = leaflet__WEBPACK_IMPORTED_MODULE_1___default().map('map').setView([39.8283, -98.5795], 5);
@@ -47819,7 +47824,7 @@ var App = function () {
     return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { id: "apps", className: "container" },
         react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Nav__WEBPACK_IMPORTED_MODULE_2__.default, { toggleAboutOpen: toggleAboutOpen, toggleStartClaimOpen: toggleStartClaimOpen }),
         react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_About__WEBPACK_IMPORTED_MODULE_3__.default, { isOpen: aboutOpen, toggleAboutOpen: toggleAboutOpen }),
-        react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_StartClaim__WEBPACK_IMPORTED_MODULE_4__.default, { isOpen: startClaimOpen, toggleStartClaimOpen: toggleStartClaimOpen, toggleEditClaimOpen: toggleEditClaimOpen }),
+        renderModal(startClaimOpen, react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_StartClaim__WEBPACK_IMPORTED_MODULE_4__.default, { isOpen: startClaimOpen, toggleStartClaimOpen: toggleStartClaimOpen, toggleEditClaimOpen: toggleEditClaimOpen })),
         react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_EditClaim__WEBPACK_IMPORTED_MODULE_5__.default, { isOpen: editClaimOpen, toggleStartClaimOpen: toggleStartClaimOpen, toggleEditClaimOpen: toggleEditClaimOpen, toggleEndClaimOpen: toggleEndClaimOpen }),
         react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_EndClaim__WEBPACK_IMPORTED_MODULE_6__.default, { isOpen: endClaimOpen, toggleStartClaimOpen: toggleStartClaimOpen, toggleEndClaimOpen: toggleEndClaimOpen }),
         react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { id: "map" })));
@@ -48061,6 +48066,7 @@ react_modal__WEBPACK_IMPORTED_MODULE_1___default().setAppElement('#app');
 var StartClaim = function (_a) {
     var isOpen = _a.isOpen, toggleStartClaimOpen = _a.toggleStartClaimOpen, toggleEditClaimOpen = _a.toggleEditClaimOpen;
     var _b = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(), userErrors = _b[0], setUserErrors = _b[1];
+    var _c = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(), photoFile = _c[0], setPhotoFile = _c[1];
     // Close StartClaim and open EditClaim
     var switchToEditClaim = function () {
         toggleStartClaimOpen();
@@ -48070,10 +48076,10 @@ var StartClaim = function (_a) {
     };
     // Begin claim process
     var beginClaim = function () {
-        var fileInput = document.getElementById('start-claim__input');
-        var file = fileInput.files[0];
+        // const fileInput = document.getElementById('start-claim__input');
+        // const file = fileInput.files[0];
         // verify user has submitted a file
-        if (file) {
+        if (photoFile) {
             switchToEditClaim();
         }
         else {
@@ -48086,11 +48092,16 @@ var StartClaim = function (_a) {
             return react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "user-error" }, userErrors);
         }
     };
+    // Update reference for current user submitted file
+    var onFileChange = function (e) {
+        setPhotoFile(e.target.files[0]);
+        console.log(e.target.files[0]);
+    };
     return (react__WEBPACK_IMPORTED_MODULE_0__.createElement((react_modal__WEBPACK_IMPORTED_MODULE_1___default()), { isOpen: isOpen, onRequestClose: toggleStartClaimOpen, contentLabel: "Upload Claim Modal", className: "modal" },
         react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null,
             react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", { className: "modal__title" }, "Submit New Claim"),
             react__WEBPACK_IMPORTED_MODULE_0__.createElement("h6", null, "Upload a photo of a vehicle obstructing a bike lane"),
-            react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", { type: "file", name: "start-claim__file", id: "start-claim__input", accept: "image/.jpeg" }),
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", { type: "file", name: "start-claim__file", id: "start-claim__input", accept: "image/.jpeg", onChange: onFileChange }),
             renderErrorMessage(),
             react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "File must be a jpeg with exif data"),
             react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", { type: "button", onClick: toggleStartClaimOpen }, "Close"),

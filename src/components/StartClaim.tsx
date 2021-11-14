@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import ReactModal from 'react-modal';
 
 ReactModal.setAppElement('#app');
@@ -11,6 +11,7 @@ type Props = {
 
 const StartClaim = ({ isOpen, toggleStartClaimOpen, toggleEditClaimOpen }: Props) => {
   const [userErrors, setUserErrors] = useState();
+  const [photoFile, setPhotoFile] = useState();
 
   // Close StartClaim and open EditClaim
   const switchToEditClaim = () => {
@@ -22,10 +23,10 @@ const StartClaim = ({ isOpen, toggleStartClaimOpen, toggleEditClaimOpen }: Props
 
   // Begin claim process
   const beginClaim = () => {
-    const fileInput = document.getElementById('start-claim__input');
-    const file = fileInput.files[0];
+    // const fileInput = document.getElementById('start-claim__input');
+    // const file = fileInput.files[0];
     // verify user has submitted a file
-    if (file) {
+    if (photoFile) {
       switchToEditClaim();
     } else {
       setUserErrors('Please add a photo before proceeding');
@@ -39,6 +40,12 @@ const StartClaim = ({ isOpen, toggleStartClaimOpen, toggleEditClaimOpen }: Props
     }
   };
 
+  // Update reference for current user submitted file
+  const onFileChange = (e) => {
+    setPhotoFile(e.target.files[0]);
+    console.log(e.target.files[0])
+  };
+
   return (
     <ReactModal
       isOpen={isOpen}
@@ -49,7 +56,7 @@ const StartClaim = ({ isOpen, toggleStartClaimOpen, toggleEditClaimOpen }: Props
       <div>
         <h2 className="modal__title">Submit New Claim</h2>
         <h6>Upload a photo of a vehicle obstructing a bike lane</h6>
-        <input type="file" name="start-claim__file" id="start-claim__input" accept="image/.jpeg" />
+        <input type="file" name="start-claim__file" id="start-claim__input" accept="image/.jpeg" onChange={onFileChange} />
         {renderErrorMessage()}
         <p>File must be a jpeg with exif data</p>
         <button type="button" onClick={toggleStartClaimOpen}>
