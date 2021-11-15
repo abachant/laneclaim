@@ -48095,6 +48095,7 @@ var StartClaim = function (_a) {
     var isOpen = _a.isOpen, toggleStartClaimOpen = _a.toggleStartClaimOpen, toggleEditClaimOpen = _a.toggleEditClaimOpen;
     var _b = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(), userErrors = _b[0], setUserErrors = _b[1];
     var _c = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(), photoFile = _c[0], setPhotoFile = _c[1];
+    var _d = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(), exifData = _d[0], setExifData = _d[1];
     // Close StartClaim and open EditClaim
     var switchToEditClaim = function () {
         toggleStartClaimOpen();
@@ -48102,13 +48103,22 @@ var StartClaim = function (_a) {
         // reset state of StartClaim for next submission
         setUserErrors();
     };
+    var fileIsJpeg = function (file) {
+        if (file.type === 'image/jpeg') {
+            return true;
+        }
+        return false;
+    };
     // Begin claim process
     var beginClaim = function () {
-        // const fileInput = document.getElementById('start-claim__input');
-        // const file = fileInput.files[0];
         // verify user has submitted a file
         if (photoFile) {
-            switchToEditClaim();
+            if (fileIsJpeg(photoFile)) {
+                switchToEditClaim();
+            }
+            else {
+                setUserErrors('File is not a jpeg');
+            }
         }
         else {
             setUserErrors('Please add a photo before proceeding');
@@ -48123,7 +48133,6 @@ var StartClaim = function (_a) {
     // Update reference for current user submitted file
     var onFileChange = function (e) {
         setPhotoFile(e.target.files[0]);
-        console.log(e.target.files[0]);
     };
     return (react__WEBPACK_IMPORTED_MODULE_0__.createElement((react_modal__WEBPACK_IMPORTED_MODULE_1___default()), { isOpen: isOpen, onRequestClose: toggleStartClaimOpen, contentLabel: "Upload Claim Modal", className: "modal" },
         react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null,
