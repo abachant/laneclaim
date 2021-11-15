@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import ReactModal from 'react-modal';
-import EXIF from 'exif-js';
+import fileIsJpeg from '../utils';
+
+// import EXIF from 'exif-js';
 
 ReactModal.setAppElement('#app');
 
@@ -13,7 +15,6 @@ type Props = {
 const StartClaim = ({ isOpen, toggleStartClaimOpen, toggleEditClaimOpen }: Props) => {
   const [userErrors, setUserErrors] = useState();
   const [photoFile, setPhotoFile] = useState();
-  const [exifData, setExifData] = useState();
 
   // Close StartClaim and open EditClaim
   const switchToEditClaim = () => {
@@ -23,13 +24,6 @@ const StartClaim = ({ isOpen, toggleStartClaimOpen, toggleEditClaimOpen }: Props
     setUserErrors();
   };
 
-  const fileIsJpeg = (file) => {
-    if (file.type === 'image/jpeg') {
-      return true;
-    }
-    return false;
-  };
-
   // Begin claim process
   const beginClaim = () => {
     // verify user has submitted a file
@@ -37,7 +31,7 @@ const StartClaim = ({ isOpen, toggleStartClaimOpen, toggleEditClaimOpen }: Props
       if (fileIsJpeg(photoFile)) {
         switchToEditClaim();
       } else {
-        setUserErrors('File is not a jpeg')
+        setUserErrors('File is not a jpeg');
       }
     } else {
       setUserErrors('Please add a photo before proceeding');

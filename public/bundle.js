@@ -48088,14 +48088,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_modal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-modal */ "./node_modules/react-modal/lib/index.js");
 /* harmony import */ var react_modal__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_modal__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils */ "./src/utils.ts");
 
 
+
+// import EXIF from 'exif-js';
 react_modal__WEBPACK_IMPORTED_MODULE_1___default().setAppElement('#app');
 var StartClaim = function (_a) {
     var isOpen = _a.isOpen, toggleStartClaimOpen = _a.toggleStartClaimOpen, toggleEditClaimOpen = _a.toggleEditClaimOpen;
     var _b = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(), userErrors = _b[0], setUserErrors = _b[1];
     var _c = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(), photoFile = _c[0], setPhotoFile = _c[1];
-    var _d = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(), exifData = _d[0], setExifData = _d[1];
     // Close StartClaim and open EditClaim
     var switchToEditClaim = function () {
         toggleStartClaimOpen();
@@ -48103,17 +48105,11 @@ var StartClaim = function (_a) {
         // reset state of StartClaim for next submission
         setUserErrors();
     };
-    var fileIsJpeg = function (file) {
-        if (file.type === 'image/jpeg') {
-            return true;
-        }
-        return false;
-    };
     // Begin claim process
     var beginClaim = function () {
         // verify user has submitted a file
         if (photoFile) {
-            if (fileIsJpeg(photoFile)) {
+            if ((0,_utils__WEBPACK_IMPORTED_MODULE_2__.default)(photoFile)) {
                 switchToEditClaim();
             }
             else {
@@ -48145,6 +48141,29 @@ var StartClaim = function (_a) {
             react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", { type: "button", onClick: beginClaim }, "Next"))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (StartClaim);
+
+
+/***/ }),
+
+/***/ "./src/utils.ts":
+/*!**********************!*\
+  !*** ./src/utils.ts ***!
+  \**********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+// Determine if a file is a jpeg
+var fileIsJpeg = function (file) {
+    if (file.type === 'image/jpeg') {
+        return true;
+    }
+    return false;
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (fileIsJpeg);
 
 
 /***/ }),
