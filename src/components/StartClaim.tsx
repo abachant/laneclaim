@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import ReactModal from 'react-modal';
 import fileIsJpeg from '../utils';
-
-// import EXIF from 'exif-js';
+import EXIF from 'exif-js';
 
 ReactModal.setAppElement('#app');
 
@@ -15,6 +14,7 @@ type Props = {
 const StartClaim = ({ isOpen, toggleStartClaimOpen, toggleEditClaimOpen }: Props) => {
   const [userErrors, setUserErrors] = useState();
   const [photoFile, setPhotoFile] = useState();
+  const [metaData, setMetaData] = useState();
 
   // Close StartClaim and open EditClaim
   const switchToEditClaim = () => {
@@ -24,19 +24,6 @@ const StartClaim = ({ isOpen, toggleStartClaimOpen, toggleEditClaimOpen }: Props
     setUserErrors();
   };
 
-  // Begin claim process
-  const beginClaim = () => {
-    // verify user has submitted a file
-    if (photoFile) {
-      if (fileIsJpeg(photoFile)) {
-        switchToEditClaim();
-      } else {
-        setUserErrors('File is not a jpeg');
-      }
-    } else {
-      setUserErrors('Please add a photo before proceeding');
-    }
-  };
 
   // Render an error message for the user's unnacceptable file input
   const renderErrorMessage = () => {
@@ -48,6 +35,36 @@ const StartClaim = ({ isOpen, toggleStartClaimOpen, toggleEditClaimOpen }: Props
   // Update reference for current user submitted file
   const onFileChange = (e) => {
     setPhotoFile(e.target.files[0]);
+  };
+
+  const getExif = () => {
+    const exifPromise = new Promise((resolve, reject) => {
+      // return a promise of exif data
+      EXIF.getData(photoFile, function () {
+        const allMetaData = EXIF.getAllTags(this);
+        setMetaData(allMetaData);
+        resolve(allMetaData);
+        reject(allMetaData);
+      });
+    });
+    return exifPromise;
+  };
+
+  // Begin claim process
+  const beginClaim = () => {
+    // verify user has submitted a file
+    if (photoFile) {
+      if (fileIsJpeg(photoFile)) {
+        getExif()
+          .then(switchToEditClaim)
+          .catch(() => setUserErrors('File does not contain any exif data'));
+        // switchToEditClaim();
+      } else {
+        setUserErrors('File is not a jpeg');
+      }
+    } else {
+      setUserErrors('Please add a photo before proceeding');
+    }
   };
 
   return (
