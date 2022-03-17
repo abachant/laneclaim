@@ -1,6 +1,6 @@
-import fileIsJpeg from './utils';
+import { fileIsJpeg } from './utils';
 
-const imgFile = { type: 'image/jpeg' };
+const jpegFile = { type: 'image/jpeg' };
 const pngFile = { type: 'image/png' };
 const pdfFile = { type: 'pdf' };
 const emptyFile = {};
@@ -8,7 +8,7 @@ const emptyFile = {};
 describe('Utils functions', () => {
   describe('fileIsJpeg function', () => {
     test('should return true for image/jpeg', () => {
-      expect(fileIsJpeg(imgFile)).toBe(true);
+      expect(fileIsJpeg(jpegFile)).toBe(true);
     });
 
     test('should return false for pdf', () => {
