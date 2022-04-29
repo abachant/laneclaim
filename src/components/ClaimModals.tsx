@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import StartClaim from './StartClaim';
 import EditClaim from './EditClaim';
 import EndClaim from './EndClaim';
@@ -23,11 +23,15 @@ const ClaimModals = (
 
   }: Props,
 ) => {
+  const [gpsData, setGPSData] = useState();
+
   const startClaim = (
     <StartClaim
       isOpen={startClaimOpen}
       toggleStartClaimOpen={toggleStartClaimOpen}
       toggleEditClaimOpen={toggleEditClaimOpen}
+      gpsData={gpsData}
+      setGPSData={setGPSData}
     />
   );
 
@@ -37,6 +41,7 @@ const ClaimModals = (
       toggleStartClaimOpen={toggleStartClaimOpen}
       toggleEditClaimOpen={toggleEditClaimOpen}
       toggleEndClaimOpen={toggleEndClaimOpen}
+      gpsData={gpsData}
     />
   );
 
