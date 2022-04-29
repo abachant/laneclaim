@@ -1,7 +1,7 @@
+import EXIF from 'exif-js';
 import React, { useState } from 'react';
 import ReactModal from 'react-modal';
-import fileIsJpeg from '../utils';
-import EXIF from 'exif-js';
+import { fileIsJpeg, parseDMS } from '../utils';
 
 ReactModal.setAppElement('#app');
 
@@ -9,21 +9,23 @@ type Props = {
   isOpen: boolean;
   toggleStartClaimOpen: Function;
   toggleEditClaimOpen: Function;
+  setGPSData: Function;
+  gpsData: any;
 };
 
-const StartClaim = ({ isOpen, toggleStartClaimOpen, toggleEditClaimOpen }: Props) => {
+const StartClaim = ({
+  isOpen, toggleStartClaimOpen, toggleEditClaimOpen, gpsData, setGPSData,
+}: Props): any => {
   const [userErrors, setUserErrors] = useState();
   const [photoFile, setPhotoFile] = useState();
-  const [metaData, setMetaData] = useState();
 
   // Close StartClaim and open EditClaim
-  const switchToEditClaim = () => {
+  const switchToEditClaim = (): void => {
     toggleStartClaimOpen();
     toggleEditClaimOpen();
-    // reset state of StartClaim for next submission
+    // reset for next submission
     setUserErrors();
   };
-
 
   // Render an error message for the user's unnacceptable file input
   const renderErrorMessage = () => {
@@ -33,32 +35,47 @@ const StartClaim = ({ isOpen, toggleStartClaimOpen, toggleEditClaimOpen }: Props
   };
 
   // Update reference for current user submitted file
-  const onFileChange = (e) => {
+  const onFileChange = (e): void => {
     setPhotoFile(e.target.files[0]);
   };
 
-  const getExif = () => {
-    const exifPromise = new Promise((resolve, reject) => {
-      // return a promise of exif data
-      EXIF.getData(photoFile, function () {
-        const allMetaData = EXIF.getAllTags(this);
-        setMetaData(allMetaData);
-        resolve(allMetaData);
-        reject(allMetaData);
-      });
+  const getExif = () => new Promise((resolve, reject) => {
+    let exifData;
+    EXIF.getData(photoFile, function () {
+      const allMetaData = EXIF.getAllTags(this);
+      const {
+        GPSLatitude, GPSLatitudeRef, GPSLongitude, GPSLongitudeRef,
+      } = allMetaData;
+      if (GPSLatitude && GPSLatitudeRef && GPSLongitude && GPSLongitudeRef) {
+        exifData = {
+          GPSLatitude, GPSLatitudeRef, GPSLongitude, GPSLongitudeRef,
+        };
+        resolve(exifData);
+      } else {
+        reject(new Error('No exif data found'));
+      }
     });
-    return exifPromise;
-  };
+  });
 
-  // Begin claim process
-  const beginClaim = () => {
+  const beginClaim = async () => {
     // verify user has submitted a file
     if (photoFile) {
       if (fileIsJpeg(photoFile)) {
-        getExif()
-          .then(switchToEditClaim)
-          .catch(() => setUserErrors('File does not contain any exif data'));
-        // switchToEditClaim();
+        // getExif().then(switchToEditClaim);
+        try {
+          const exifDMS = await getExif();
+          if (exifDMS) {
+            const exifGPS = parseDMS(exifDMS);
+            setGPSData(exifGPS);
+            setUserErrors();
+            switchToEditClaim();
+          } else {
+            setUserErrors('File does not contain any location exif data');
+          }
+        } catch (error) {
+          // console.error(error);
+          setUserErrors('File does not contain exif data');
+        }
       } else {
         setUserErrors('File is not a jpeg');
       }

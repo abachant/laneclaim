@@ -49007,7 +49007,7 @@ __webpack_require__.r(__webpack_exports__);
 
 react_modal__WEBPACK_IMPORTED_MODULE_1___default().setAppElement('#app');
 var EditClaim = function (_a) {
-    var isOpen = _a.isOpen, toggleStartClaimOpen = _a.toggleStartClaimOpen, toggleEditClaimOpen = _a.toggleEditClaimOpen, toggleEndClaimOpen = _a.toggleEndClaimOpen, gpsData = _a.gpsData;
+    var isOpen = _a.isOpen, toggleStartClaimOpen = _a.toggleStartClaimOpen, toggleEditClaimOpen = _a.toggleEditClaimOpen, toggleEndClaimOpen = _a.toggleEndClaimOpen;
     return (react__WEBPACK_IMPORTED_MODULE_0__.createElement((react_modal__WEBPACK_IMPORTED_MODULE_1___default()), { isOpen: isOpen, onRequestClose: toggleEditClaimOpen, contentLabel: "Edit Claim Modal", className: "modal" },
         react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null,
             react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", { className: "modal__title" }, "Verify Claim Details"),
@@ -49077,7 +49077,6 @@ var EditClaim = function (_a) {
                         react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", { value: "WY" }, "WY"))),
                 react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null),
                 "Comment:",
-                console.log('gpsDATAAAA', gpsData),
                 react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null),
                 react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", { type: "text", id: "edit-claim__comment" })),
             react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", { type: "button", onClick: function () { toggleEditClaimOpen(); toggleStartClaimOpen(); } }, "Back"),
