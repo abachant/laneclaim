@@ -49008,8 +49008,7 @@ __webpack_require__.r(__webpack_exports__);
 react_modal__WEBPACK_IMPORTED_MODULE_1___default().setAppElement('#app');
 var EditClaim = function (_a) {
     var isOpen = _a.isOpen, toggleStartClaimOpen = _a.toggleStartClaimOpen, toggleEditClaimOpen = _a.toggleEditClaimOpen, toggleEndClaimOpen = _a.toggleEndClaimOpen, gpsData = _a.gpsData;
-    var Latitude = gpsData.Latitude, Longitude = gpsData.Longitude;
-    var photoGPS = [Latitude, Longitude];
+    var photoGPS = gpsData.position;
     return (react__WEBPACK_IMPORTED_MODULE_0__.createElement((react_modal__WEBPACK_IMPORTED_MODULE_1___default()), { isOpen: isOpen, onRequestClose: toggleEditClaimOpen, contentLabel: "Edit Claim Modal", className: "modal" },
         react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null,
             react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", { className: "modal__title" }, "Verify Claim Details"),
