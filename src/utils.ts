@@ -41,9 +41,9 @@ export const parseDMS = (input) => {
     );
 
     return {
-      Latitude: lat,
-      Longitude: lon,
-      Position: `${lat},${lon}`,
+      latitude: lat,
+      longitude: lon,
+      position: [lat, lon],
     };
   }
   return false;

@@ -49007,13 +49007,15 @@ __webpack_require__.r(__webpack_exports__);
 
 react_modal__WEBPACK_IMPORTED_MODULE_1___default().setAppElement('#app');
 var EditClaim = function (_a) {
-    var isOpen = _a.isOpen, toggleStartClaimOpen = _a.toggleStartClaimOpen, toggleEditClaimOpen = _a.toggleEditClaimOpen, toggleEndClaimOpen = _a.toggleEndClaimOpen;
+    var isOpen = _a.isOpen, toggleStartClaimOpen = _a.toggleStartClaimOpen, toggleEditClaimOpen = _a.toggleEditClaimOpen, toggleEndClaimOpen = _a.toggleEndClaimOpen, gpsData = _a.gpsData;
+    var Latitude = gpsData.Latitude, Longitude = gpsData.Longitude;
+    var photoGPS = [Latitude, Longitude];
     return (react__WEBPACK_IMPORTED_MODULE_0__.createElement((react_modal__WEBPACK_IMPORTED_MODULE_1___default()), { isOpen: isOpen, onRequestClose: toggleEditClaimOpen, contentLabel: "Edit Claim Modal", className: "modal" },
         react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null,
             react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", { className: "modal__title" }, "Verify Claim Details"),
-            react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_leaflet__WEBPACK_IMPORTED_MODULE_2__.MapContainer, { id: "edit-claim__map", center: [39.8283, -98.5795], zoom: 17 },
-                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_leaflet__WEBPACK_IMPORTED_MODULE_3__.TileLayer, { url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", attribution: "\u00A9 <a href=\"http://osm.org/copyright\">OpenStreetMap</a> contributors" }),
-                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_leaflet__WEBPACK_IMPORTED_MODULE_4__.Marker, { position: [39.8283, -98.5795] })),
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_leaflet__WEBPACK_IMPORTED_MODULE_2__.MapContainer, { id: "edit-claim__map", center: photoGPS, zoom: 17 },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_leaflet__WEBPACK_IMPORTED_MODULE_3__.TileLayer, { url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", attribution: '\u00A9 <a href="http://osm.org/copyright">OpenStreetMap</a> contributors' }),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_leaflet__WEBPACK_IMPORTED_MODULE_4__.Marker, { position: photoGPS })),
             react__WEBPACK_IMPORTED_MODULE_0__.createElement("h6", null, "Add relevant information for your claim"),
             react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", null,
                 "License Plate:",
@@ -49079,8 +49081,14 @@ var EditClaim = function (_a) {
                 "Comment:",
                 react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null),
                 react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", { type: "text", id: "edit-claim__comment" })),
-            react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", { type: "button", onClick: function () { toggleEditClaimOpen(); toggleStartClaimOpen(); } }, "Back"),
-            react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", { type: "button", onClick: function () { toggleEditClaimOpen(); toggleEndClaimOpen(); } }, "Submit"))));
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", { type: "button", onClick: function () {
+                    toggleEditClaimOpen();
+                    toggleStartClaimOpen();
+                } }, "Back"),
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", { type: "button", onClick: function () {
+                    toggleEditClaimOpen();
+                    toggleEndClaimOpen();
+                } }, "Submit"))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (EditClaim);
 
@@ -49202,7 +49210,7 @@ var __generator = (undefined && undefined.__generator) || function (thisArg, bod
 
 react_modal__WEBPACK_IMPORTED_MODULE_2___default().setAppElement('#app');
 var StartClaim = function (_a) {
-    var isOpen = _a.isOpen, toggleStartClaimOpen = _a.toggleStartClaimOpen, toggleEditClaimOpen = _a.toggleEditClaimOpen, gpsData = _a.gpsData, setGPSData = _a.setGPSData;
+    var isOpen = _a.isOpen, toggleStartClaimOpen = _a.toggleStartClaimOpen, toggleEditClaimOpen = _a.toggleEditClaimOpen, setGPSData = _a.setGPSData;
     var _b = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(), userErrors = _b[0], setUserErrors = _b[1];
     var _c = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(), photoFile = _c[0], setPhotoFile = _c[1];
     // Close StartClaim and open EditClaim
@@ -49334,9 +49342,9 @@ var parseDMS = function (input) {
         var lat = convertDMSToDD(GPSLatitude[0], GPSLatitude[1], GPSLatitude[2], GPSLatitudeRef);
         var lon = convertDMSToDD(GPSLongitude[0], GPSLongitude[1], GPSLongitude[2], GPSLongitudeRef);
         return {
-            Latitude: lat,
-            Longitude: lon,
-            Position: lat + "," + lon,
+            latitude: lat,
+            longitude: lon,
+            position: [lat, lon],
         };
     }
     return false;
