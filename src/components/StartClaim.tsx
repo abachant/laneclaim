@@ -10,11 +10,10 @@ type Props = {
   toggleStartClaimOpen: Function;
   toggleEditClaimOpen: Function;
   setGPSData: Function;
-  gpsData: any;
 };
 
 const StartClaim = ({
-  isOpen, toggleStartClaimOpen, toggleEditClaimOpen, gpsData, setGPSData,
+  isOpen, toggleStartClaimOpen, toggleEditClaimOpen, setGPSData,
 }: Props): any => {
   const [userErrors, setUserErrors] = useState();
   const [photoFile, setPhotoFile] = useState();
